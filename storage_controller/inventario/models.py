@@ -29,6 +29,10 @@ class Inventario(models.Model):
 	descricao = models.TextField(null=True, blank=True)
 	caixa = models.CharField(max_length=100)
 	tags = models.ManyToManyField(Tag)
+	
+	call Meta:
+		verbose_name = 'Item'
+		verbose_name_plural = 'Itens'
 
 
 	def __unicode__(self):
