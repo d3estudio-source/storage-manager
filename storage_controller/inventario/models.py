@@ -30,7 +30,7 @@ class Inventario(models.Model):
 	caixa = models.CharField(max_length=100)
 	tags = models.ManyToManyField(Tag)
 	
-	call Meta:
+	class Meta:
 		verbose_name = 'Item'
 		verbose_name_plural = 'Itens'
 
