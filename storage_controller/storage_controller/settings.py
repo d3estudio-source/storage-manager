@@ -131,6 +131,8 @@ STATICFILES_FINDERS = (
 'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
 
+GRAPELLI_ADMIN_TITLE = 'INVENTARIO D3'
+
 try:
     from local_settings import *
 except ImportError:
