@@ -6,6 +6,7 @@ from .models import Emprestimo
 from .models import Inventario
 from .models import Tag
 from django.contrib import admin
+from django.contrib.auth.models import User
 
 
 class InventarioAdmin(admin.ModelAdmin):
@@ -41,6 +42,13 @@ class EmprestimoAdmin(admin.ModelAdmin):
 
 	def itens(self, obj):
 		return "\n".join([p.item for p in obj.item.all()])
+
+	def get_form(self, request, obj=None, **kwargs):
+		form = super(EmprestimoAdmin, self).get_form(request, obj, **kwargs)
+		if not request.user.is_superuser:
+			form.base_fields['responsavel'].queryset = User.objects.filter(pk=request.user.pk)
+
+		return form
 
 
 admin.site.register(Emprestimo, EmprestimoAdmin)
