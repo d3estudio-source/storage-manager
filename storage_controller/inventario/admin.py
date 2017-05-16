@@ -17,6 +17,12 @@ class InventarioAdmin(admin.ModelAdmin):
 		emprestimos = Emprestimo.objects.filter(item__pk=obj.pk)
 		return ', '.join([e.responsavel.first_name for e in emprestimos])
 
+	def get_queryset(self, request):
+        qs = super(InventarioAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(pk=request.user.pk)
+
 admin.site.register(Inventario, InventarioAdmin)
 admin.site.register(Tag)
 
