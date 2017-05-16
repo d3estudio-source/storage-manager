@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 # Create your models here.
@@ -29,14 +29,14 @@ class Inventario(models.Model):
 	descricao = models.TextField(null=True, blank=True)
 	caixa = models.CharField(max_length=100)
 	tags = models.ManyToManyField(Tag)
-	
+
 	class Meta:
 		verbose_name = 'Item'
 		verbose_name_plural = 'Itens'
 
 
 	def __unicode__(self):
-		return self.item + '('+ self.marca + '/' + self.modelo + ')'
+		return self.item
 
 
 class Emprestimo(models.Model):
