@@ -15,7 +15,7 @@ class InventarioAdmin(admin.ModelAdmin):
 
 	def emprestado_para(self, obj):
 		emprestimos = Emprestimo.objects.filter(item__pk=obj.pk)
-		return [e.responsavel.first_name for e in emprestimos].join(', ')
+		return ', '.join([e.responsavel.first_name for e in emprestimos])
 
 admin.site.register(Inventario, InventarioAdmin)
 admin.site.register(Tag)
