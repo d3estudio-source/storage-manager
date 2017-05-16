@@ -36,7 +36,7 @@ class Inventario(models.Model):
 
 
 	def __unicode__(self):
-		return self.item + self.marca
+		return '{} ({}/{})'.format(self.item, self.marca, self.modelo)
 
 
 class Emprestimo(models.Model):
