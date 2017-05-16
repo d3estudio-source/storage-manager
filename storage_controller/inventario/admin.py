@@ -41,7 +41,8 @@ class EmprestimoAdmin(admin.ModelAdmin):
 	list_filter = ('responsavel','status','data_saida', 'data_entrada',)
 
 	def itens(self, obj):
-		return "\n<br>".join(['{} - {} ({}/{})'.format(p.codigo, p.item, p.marca, p.modelo) for p in obj.item.all()])
+		return "<br>".join(['{} - {} ({}/{})'.format(p.codigo, p.item, p.marca, p.modelo) for p in obj.item.all()])
+	itens.allow_tags = True
 
 	def get_form(self, request, obj=None, **kwargs):
 		form = super(EmprestimoAdmin, self).get_form(request, obj, **kwargs)
