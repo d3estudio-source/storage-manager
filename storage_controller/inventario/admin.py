@@ -41,7 +41,7 @@ class EmprestimoAdmin(admin.ModelAdmin):
 	list_filter = ('responsavel','status','data_saida', 'data_entrada',)
 
 	def itens(self, obj):
-		return "\n".join([p.item for p in obj.item.all()])
+		return "\n<br>".join([p for p in obj.item.all()])
 
 	def get_form(self, request, obj=None, **kwargs):
 		form = super(EmprestimoAdmin, self).get_form(request, obj, **kwargs)
