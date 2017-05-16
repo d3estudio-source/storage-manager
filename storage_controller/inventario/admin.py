@@ -9,7 +9,7 @@ from django.contrib import admin
 
 
 class InventarioAdmin(admin.ModelAdmin):
-	list_display = ('codigo','quantidade','item', 'marca', 'modelo', 'descricao', 'caixa',)
+	list_display = ('codigo','quantidade','item', 'marca', 'modelo', 'descricao', 'caixa','emprestado_para',)
 	search_fields = ('codigo','quantidade','item', 'marca', 'modelo', 'descricao', 'caixa',)
 	list_filter = ('marca', 'modelo','caixa','tags',)
 
