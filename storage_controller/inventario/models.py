@@ -36,7 +36,7 @@ class Inventario(models.Model):
 
 
 	def __unicode__(self):
-		return self.item
+		return self.item + '(' + self.marca + ')'
 
 
 class Emprestimo(models.Model):
